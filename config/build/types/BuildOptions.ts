@@ -12,5 +12,9 @@ export interface BuildPaths{
     entry:string,
     output:string,
     html:string,
+}
 
+export interface BuildEnv{
+    mode:BuildMode,
+    port:number
 }

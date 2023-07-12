@@ -5,6 +5,6 @@ import CopyPlugin from "copy-webpack-plugin";
 import path from "path";
 
 export const buildPlugins = (buildOptions: BuildOptions): webpack.WebpackPluginInstance[] => {
-    return [new HtmlWebpackPlugin({template: buildOptions.paths.html}),
-      ]
+    return [
+      new HtmlWebpackPlugin({template: buildOptions.paths.html}),]
 }

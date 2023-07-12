@@ -7,11 +7,11 @@ import {buildDevServer} from "./BuildDevServer";
 
 export const buildWebpackConfig = (buildOptions:BuildOptions):webpack.Configuration =>{
     return {
-        mode:'development',
+        mode:buildOptions.mode,
         entry:buildOptions.paths.entry,
         output:{
             path:buildOptions.paths.output,
-            filename:'content.js',
+            filename:'[name].[contenthash].js',
         },
         module:{
             rules:buildLoaders(buildOptions)

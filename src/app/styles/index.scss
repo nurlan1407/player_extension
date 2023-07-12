@@ -1,0 +1,20 @@
+@import "variables/global.scss";
+
+
+.app{
+    font: var(--font-m);
+    color:var(--primary-color);
+    min-height: 500px;
+    width: 400px;
+    background-color: red;  
+    position: left; 
+}
+
+.content-page{
+    display: flex;
+}
+
+.page-wrapper{
+    flex-grow: 1;
+    padding: 20px;
+}
