@@ -9,9 +9,10 @@ export const buildWebpackConfig = (buildOptions:BuildOptions):webpack.Configurat
     return {
         mode:buildOptions.mode,
         entry:buildOptions.paths.entry,
+        devtool: 'cheap-module-source-map',
         output:{
             path:buildOptions.paths.output,
-            filename:'[name].[contenthash].js',
+            filename:'content.js',
         },
         module:{
             rules:buildLoaders(buildOptions)

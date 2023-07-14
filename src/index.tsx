@@ -1,13 +1,20 @@
-import App from "app/app";
 import React from "react";
-import ReactDom from 'react-dom'
+import { render } from "react-dom";
+import App from "app/app";
 import { BrowserRouter } from "react-router-dom";
 
-const root = document.getElementById('root')
-ReactDom.render(
-    <BrowserRouter>
-        <App/>
-    </BrowserRouter>
-    ,
-    root
+const rootEl = document.createElement('div')
+rootEl.id = 'nurlan'
+
+render(
+    <React.StrictMode>
+      <BrowserRouter>
+    <App />
+      
+      </BrowserRouter>
+  </React.StrictMode>,
+  rootEl
 )
+
+document.body.appendChild(rootEl)
+
