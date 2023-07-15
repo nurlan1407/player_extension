@@ -1,21 +1,23 @@
 import React, { Suspense } from "react";
 import { RouterConfiguration, EndpointName } from "shared/config/routerConfig/routerConfig";
 import { Route, Routes } from 'react-router-dom';
+import { NavEndpoint } from "shared/config/navigation/store/navigationState";
+import { useAppSelector } from "store/hooks";
+import { stat } from "fs";
+import { BookMarksAsync } from "pages/bookMarks/ui/bookMarksAsync";
 
 export const AppRouter = () =>{
+    const {endpoint} = useAppSelector(state => state.one)
+    console.log(endpoint);
+    
     return(
-        <Routes>
-          {Object.values(RouterConfiguration).map(({ element, path }) => (
-            <Route 
-                key={path}
-                path={path} 
-                element={<Suspense fallback={<div>Loading...</div>}>
-                    <div className="page-wrapper">
-                        {element}
-                    </div>
-                </Suspense>}
-            />
-          ))}
-        </Routes>
+        <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        {endpoint === NavEndpoint.BOOKMARKS && <BookMarksAsync />}
+        {endpoint === NavEndpoint.NOT_FOUND && <div>Ошибка</div>}
+        {endpoint === NavEndpoint.READ && <div>Read</div>}
+      </Suspense>
+    </div>
     )
 }
+

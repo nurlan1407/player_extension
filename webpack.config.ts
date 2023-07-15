@@ -8,7 +8,6 @@ export default (env:BuildEnv) =>{
         output: path.resolve(__dirname, "build"),
         html: path.resolve(__dirname,'public', 'index.html'),
         src: path.resolve(__dirname, 'src'),
-        srcExt: path.resolve(__dirname, 'src-ext')
     }
     const mode = env.mode || 'development';
     const PORT = env.port || 3000;
